@@ -4,4 +4,4 @@ Learning and annotations from https://egghead.io/courses/asynchronous-programmin
 
 1 - 4 skipped
 
-5. [Create an Array concatAll method](./05.js)
+5. [Create an Array concatAll method](./05/index.js)
