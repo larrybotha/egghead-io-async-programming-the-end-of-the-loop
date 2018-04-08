@@ -15,18 +15,20 @@ const click$ = Rx.Observable.fromEvent(button, 'click');
 // click$ now operates similar to an array
 // [1, 2, 3].forEach(console.log.bind(console));
 
-// use forEach on Observable
+// use subscribe on Observable
 // This now works the same as the event handler above
 // We can't use map here for some reason
 // We can't use try-catch here, because Observables are async -
 // try-catch only works with syncrhonous code, and will have
 // exited by the time an error is thrown.
-// We thus have 3 callbacks that forEach can take
-const subscription = click$.forEach(
+// We thus have 3 callbacks that subscribe can take
+const subscription = click$.subscribe(
   function onNext() {
     alert('clicked');
 
-    subscription.dispose();
+    // we can unsubscribe from the listener using the returned object
+    // from stream$.subscribe
+    subscription.unsubscribe();
   },
   function onError(err) {
     console.log('error', err);
