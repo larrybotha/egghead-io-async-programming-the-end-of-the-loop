@@ -1,0 +1,23 @@
+{
+  "name": "eggheadio-async-programming-the-end-of-the-loop",
+  "version": "1.0.0",
+  "description": "Learning and annotations from https://egghead.io/courses/asynchronous-programming-the-end-of-the-loop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larrybotha/eggheadio-async-programming-the-end-of-the-loop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/larrybotha/eggheadio-async-programming-the-end-of-the-loop/issues"
+  },
+  "homepage": "https://github.com/larrybotha/eggheadio-async-programming-the-end-of-the-loop#readme",
+  "dependencies": {
+    "rxjs": "^5.5.8"
+  }
+}
