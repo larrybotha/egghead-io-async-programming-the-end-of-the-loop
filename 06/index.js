@@ -28,6 +28,9 @@ const subscription = click$.subscribe(
 
     // we can unsubscribe from the listener using the returned object
     // from stream$.subscribe
+    // unsubscribe essentially indicates to the stream that we're no longer
+    // interested in invoking any of these callbacks inside this subscription
+    // any longer
     subscription.unsubscribe();
   },
   function onError(err) {
