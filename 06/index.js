@@ -7,6 +7,35 @@ const button = document.querySelector('.js-button');
 // };
 
 // button.addEventListener('click', handleClick);
+
+// Instead we can treat clicks more like an array by creating a stream
+// using Observable
+const click$ = Rx.Observable.fromEvent(button, 'click');
+
+// click$ now operates similar to an array
+// [1, 2, 3].forEach(console.log.bind(console));
+
+// use forEach on Observable
+// This now works the same as the event handler above
+// We can't use map here for some reason
+// We can't use try-catch here, because Observables are async -
+// try-catch only works with syncrhonous code, and will have
+// exited by the time an error is thrown.
+// We thus have 3 callbacks that forEach can take
+const subscription = click$.forEach(
+  function onNext() {
+    alert('clicked');
+
+    subscription.dispose();
+  },
+  function onError(err) {
+    console.log('error', err);
+  },
+  function onComplete() {
+    console.log('done');
+  }
+);
+
 // What we're doing is changing thinking about events as objects with properties,
 // and instead treat them as first-class collections
 
