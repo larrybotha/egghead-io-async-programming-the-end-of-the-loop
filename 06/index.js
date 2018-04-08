@@ -33,6 +33,9 @@ const subscription = click$.subscribe(
     // any longer
     subscription.unsubscribe();
   },
+  // regardless of whether an error synchronous or async onEror will always be
+  // executed
+  // Awesome!
   function onError(err) {
     console.log('error', err);
   },
