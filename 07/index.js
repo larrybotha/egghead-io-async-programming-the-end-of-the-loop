@@ -1,6 +1,9 @@
 const button = document.querySelector('.js-button');
 
 const click$ = Rx.Observable.fromEvent(button, 'click');
+// we can use Observable.prototype.map to augment the click stream
+// as Array.prototype.map does for arrays
+const point$ = click$.map(({clientX, clientY}) => ({x: clientX, y: clientY}));
 
 // instead of subscribing to the click stream, we subscribe to the point stream
 // Before we subscribe to this observable no click handlers are added to the
