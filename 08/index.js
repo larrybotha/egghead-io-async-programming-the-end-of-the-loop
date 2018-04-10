@@ -33,7 +33,19 @@ const drag$ = mouseDown$
   // inside the observable
   .concatAll();
 
+// subscribe to the drag stream, moving the widget's position whenever there are
+// events in the stream
+drag$.subscribe(
+  function onNext(e) {
+    widget.style.left = e.clientX + 'px';
+    widget.style.top = e.clientY + 'px';
   },
+  function onError(e) {
+    // If something errors, we can catch it here without worrying about try-catch
+    // blocks
+    console.log(e);
   },
+  function onCompleted() {
+    // This observable will never complete because we're subscribing to DOM events
   }
 );
