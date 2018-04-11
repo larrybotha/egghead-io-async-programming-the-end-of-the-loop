@@ -5,25 +5,25 @@ const exchanges = [
       {
         symbol: 'ASD',
         closes: [
-          {price: 213.4, volume: 12345},
-          {price: 214.4, volume: 12346},
-          {price: 13.4, volume: 12343},
+          {price: 213.4, date: new Date(2014, 11, 23)},
+          {price: 214.4, date: new Date(2014, 11, 24)},
+          {price: 13.4, date: new Date(2014, 11, 25)},
         ],
       },
       {
         symbol: 'DFG',
         closes: [
-          {price: 213.4, volume: 12345},
-          {price: 214.4, volume: 12346},
-          {price: 13.4, volume: 12343},
+          {price: 213.4, date: new Date(2014, 11, 23)},
+          {price: 214.4, date: new Date(2014, 11, 24)},
+          {price: 13.4, date: new Date(2014, 11, 25)},
         ],
       },
       {
         symbol: 'ZXC',
         closes: [
-          {price: 213.4, volume: 12345},
-          {price: 214.4, volume: 12346},
-          {price: 13.4, volume: 12343},
+          {price: 213.4, date: new Date(2014, 11, 23)},
+          {price: 214.4, date: new Date(2014, 11, 24)},
+          {price: 13.4, date: new Date(2014, 11, 25)},
         ],
       },
     ],
@@ -31,7 +31,11 @@ const exchanges = [
 ];
 
 Array.prototype.concatAll = function concatAll() {
-  return this.forEach(subArray => subArray.forEach(item => results.push(item)));
+  let results;
+
+  this.forEach(subArray => subArray.forEach(item => results.push(item)));
+
+  return results;
 };
 
 module.exports = exchanges;
