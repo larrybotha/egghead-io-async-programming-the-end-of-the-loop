@@ -31,11 +31,34 @@ const exchanges = [
 ];
 
 Array.prototype.concatAll = function concatAll() {
-  let results;
+  let results = [];
 
   this.forEach(subArray => subArray.forEach(item => results.push(item)));
 
   return results;
 };
 
-module.exports = exchanges;
+debugger;
+
+const christmasEveCloses = exchanges
+  // first level of nesting
+  .map(exchange =>
+    exchange.stocks
+      // second level of nesting
+      .map(stock =>
+        stock.closes
+          .filter(
+            close => close.date.getMonth() == 11 && close.date.getDate() == 24
+          )
+          .map(close => ({
+            symbol: stock.symbol,
+            date: close.date,
+          }))
+      )
+      // flatten second level
+      .concatAll()
+  )
+  // flatten first level
+  .concatAll();
+
+christmasEveCloses.forEach(item => console.log(JSON.stringify(item, null, 2)));
