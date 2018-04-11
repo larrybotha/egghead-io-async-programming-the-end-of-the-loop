@@ -8,3 +8,4 @@ Learning and annotations from https://egghead.io/courses/asynchronous-programmin
 6. [Introducing the Observable](./06/index.js)
 7. [Using `map` with `Observable`](./07/index.js)
 8. [Simple drag and drop with Observables](./08/index.js)
+8. [Advanced Flattening](./09/index.js)
